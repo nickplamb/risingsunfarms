@@ -47,6 +47,7 @@ class ChickenController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|unique:chickens|max:100',
             'DOB' => 'required|date',
+            'chicken_sex' => 'required',
             'breed' => 'required',
             'egg_color' => 'required',
             'comments' => 'nullable'
@@ -58,6 +59,7 @@ class ChickenController extends Controller
 
         $chicken->name = Request('name');
         $chicken->DOB = Request('DOB');
+        $chicken->chicken_sex = Request('chicken_sex');
         $chicken->breed = Request('breed');
         $chicken->egg_color = Request('egg_color');
         $chicken->comments = Request('comments');

@@ -18,6 +18,7 @@ class CreateChickensTable extends Migration
             $table->string('name');
             $table->date('DOB');
             $table->date('DOD')->nullable();
+            $table->string('chicken_sex');
             $table->string('egg_color');
             $table->string('breed');
             $table->text('comments')->nullable();

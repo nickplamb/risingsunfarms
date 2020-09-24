@@ -10,6 +10,7 @@ class Egg extends Model
     use HasFactory;
 
     protected $guarded = [];
+    //protected $fillable = ['chicken_name', 'weight', 'layed_on', 'comments'];
 /*
     public functions getEggsTodayAttribute()
     {

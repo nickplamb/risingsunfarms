@@ -38,13 +38,25 @@
 	@csrf
 
 	<div class="row gtr-uniform">
-		<div class="col-6 col-12-xsmall">
+		<div class="col-12 col-12-xsmall">
 			<label class="label" for="name">What's her name?</label>
 			<input type="text" name="name" id="name" placeholder="Name"/>
 		</div>
-		<div class="col-12">
+		<div class="col-4">
 			<label class="label" for="DOB">When did she hatch?</label>
 			<input type="date" name="DOB" id="DOB"/>
+		</div>
+		<div class="col-4" style="position: relative;">
+			<div style="position: absolute; bottom: 0;">
+				<input type="radio" id="chicken_sex_hen" name="chicken_sex" value="hen" checked>
+				<label for="chicken_sex_hen">Hen</label>
+			</div>
+		</div>
+		<div class="col-4" style="position: relative;">
+			<div style="position: absolute; bottom: 0;">
+				<input type="radio" id="chicken_sex_rooster" name="chicken_sex" value="rooster">
+				<label for="chicken_sex_rooster">Rooster</label>
+			</div>
 		</div>
 		<!-- Break -->
 		<div class="col-12">
@@ -65,6 +77,7 @@
 				<option value="Blueish">Blueish</option>
 				<option value="Greenish">Greenish</option>
 				<option value="White">White</option>
+				<option value="no">He won't lay any eggs.</option>
 			</select>
 		</div>
 		<!-- Break -->

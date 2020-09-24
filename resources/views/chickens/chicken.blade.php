@@ -8,7 +8,7 @@
 			<h1>These are our Chickens</h1>
 		</header>
 
-		<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+		<span class="image main"><img src="images/chickens/chickensadd.jpg" alt="" /></span>
 
 		<p>Look at them!</p>
 		<p>They poop breakfast!</p>
@@ -22,12 +22,22 @@
 					<a href="/chickens/{{$chicken->name}}"><h2>{{$chicken->name}}</h2></a>
 					<div class="col-6">
 						<p>{{$chicken->name}} is a {{$chicken->breed}} who lays {{$chicken->egg_color}} eggs.</p>
-						<p>She hatched on {{$chicken->DOB->format('D, M jS Y')}} and 
-						@if ($chicken->DOD !== null)
-							died on {{$chicken->DOD->format('D, M jS Y')}}.</p>
-						@else
-							is now {{$chicken->age}} weeks old.</p> 
-						@endif
+						<p>
+							@if ($chicken->chicken_sex === "rooster")
+								He 
+							@else
+								She
+							@endif
+
+							hatched on {{$chicken->DOB->format('D, M jS Y')}} and 
+
+							@if ($chicken->DOD !== null)
+								died on {{$chicken->DOD->format('D, M jS Y')}}.
+							@else
+								is now {{$chicken->age}} weeks old.
+							@endif
+						</p> 
+						<p></p>
 					</div>
 				</div>
 				<span class="image object">
