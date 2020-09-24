@@ -41,7 +41,11 @@
 					</div>
 				</div>
 				<span class="image object">
-					<img src="/images/chickens/{{$chicken->name}}.jpg" alt="" />
+					@if ($chicken->photo_url === null)
+						<img src="/images/chickens/chickensadd.jpg" alt="" />
+					@else
+					<img src="{{$chicken->image}}" alt="" />
+					@endif
 				</span>
 			</section>
 		@endforeach

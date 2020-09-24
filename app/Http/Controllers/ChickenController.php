@@ -50,10 +50,10 @@ class ChickenController extends Controller
             'chicken_sex' => 'required',
             'breed' => 'required',
             'egg_color' => 'required',
+            'chicken_photo' => 'nullable|mimes:jpeg,png,jpg,gif|max:2048',
             'comments' => 'nullable'
         ]);
-
-
+        
         
         $chicken = new Chicken();
 
@@ -63,6 +63,15 @@ class ChickenController extends Controller
         $chicken->breed = Request('breed');
         $chicken->egg_color = Request('egg_color');
         $chicken->comments = Request('comments');
+
+        if ($request->has('chicken_photo')) {
+            $image = Request('chicken_photo');
+            $extension = Request('chicken_photo')->extension();             
+            $name = Request('name').'_'.time().'.'.$extension;
+            $path = $image->storePubliclyAs('images/chickens', $name);
+        }
+        $chicken->photo_url = $path;
+
         $chicken->save();
         
 

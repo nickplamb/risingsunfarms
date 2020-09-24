@@ -24,4 +24,8 @@ class Chicken extends Model
     	return $this->DOB->diffInWeeks();
     }
 
+    public function getImageAttribute()
+    {
+       return $this->photo_url;
+    }
 }

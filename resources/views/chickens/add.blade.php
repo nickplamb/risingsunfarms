@@ -34,7 +34,7 @@
     </div>
 @endif
 
-<form method="POST" action="/chickens">
+<form method="POST" action="/chickens" enctype="multipart/form-data">
 	@csrf
 
 	<div class="row gtr-uniform">
@@ -79,6 +79,10 @@
 				<option value="White">White</option>
 				<option value="no">He won't lay any eggs.</option>
 			</select>
+		</div>
+		<div>
+			<label class="label" for="chicken_photo">Upload a picture of our new chicken</label>
+			<input type="file" name="chicken_photo" id="chicken_photo">
 		</div>
 		<!-- Break -->
 		<div class="col-12">
