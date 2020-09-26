@@ -62,7 +62,7 @@
 											<ul>
 												<li><a href="/chickens">All the Chickens</a></li>
 												<li><a href="/chickens/add">Add a chicken</a></li>
-												<li><a href="/#">Remove a chicken</a></li>
+												<li><a href="/#">#Remove a chicken</a></li>
 											</ul>
 										</li>
 										<li>
@@ -76,9 +76,9 @@
 										<li>
 											<span class="opener">The Chicken Coop</span>
 											<ul>
-												<li><a href="/#">Coop Temperatures</a></li>
-												<li><a href="/#">Coop Door</a></li>
-												<li><a href="/#">Build process</a></li>
+												<li><a href="/coop">Coop Temperatures</a></li>
+												<li><a href="/#">#Coop Door</a></li>
+												<li><a href="/#">#Build process</a></li>
 											</ul>
 										<li><a href="/elements">Elements</a></li>
 										</li>
