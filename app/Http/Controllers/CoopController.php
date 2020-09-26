@@ -14,7 +14,9 @@ class CoopController extends Controller
      */
     public function index()
     {
-        //
+        return view('/coop.coop', [
+            'coops' => Coop::orderBy('created_at', 'desc')->get()
+        ]); //
     }
 
     /**
@@ -22,9 +24,11 @@ class CoopController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function add()
     {
-        //
+        
+
+
     }
 
     /**

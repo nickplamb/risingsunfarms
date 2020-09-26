@@ -26,7 +26,7 @@ class EggFactory extends Factory
             'chicken_name' => $this->faker->firstNameFemale,
             'weight' => $this->faker->numberBetween($min = 35, $max = 60),
             'layed_on' =>$this->faker->dateTimeThisYear($max = 'now', $timezone = 'America/New_York'),
-            'comments' =>$this->faker->realText($maxNbChars = 100, $indexSize = 2)
+            'comments' =>$this->faker->realText($maxNbChars = 50, $indexSize = 2)
         ];
     }
 }
