@@ -127,6 +127,7 @@ class ChickenController extends Controller
 
 
         return redirect('/chickens');
+        // ---------------------------------------------------add validation, photo insert, and sex------------------------
     }
     /**
      * Remove the specified resource from storage.

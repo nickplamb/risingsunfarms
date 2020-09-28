@@ -41,32 +41,43 @@ class PetController extends Controller
             'name' => 'required|unique:chickens|max:100',
             'DOB' => 'required|date',
             'DOD' => 'nullable|date'
-            '' => 'required',
-            'breed' => 'required',
-            'egg_color' => 'required',
-            'chicken_photo' => 'nullable|mimes:jpeg,png,jpg,gif|max:2048',
+            'species' => 'required',
+            'breed' => 'nullable',
+            'sex' => 'nullable',
+            'favorites' => 'nullable',
+            'dislikes' => 'nullable',
+            'origin_story' => 'nullable',
+            'locations' => 'nullable',
+            'description' => 'nullable',
+            'pet_photo' => 'nullable|mimes:jpeg,png,jpg,gif|max:2048',
             'comments' => 'nullable'
         ]);
         
         
-        $chicken = new Chicken();
+        $pet = new Pet();
 
-        $chicken->name = Request('name');
-        $chicken->DOB = Request('DOB');
-        $chicken->chicken_sex = Request('chicken_sex');
-        $chicken->breed = Request('breed');
-        $chicken->egg_color = Request('egg_color');
-        $chicken->comments = Request('comments');
+        $pet->name = Request('name');
+        $pet->DOB = Request('DOB');
+        $pet->DOD = Request('DOD');
+        $pet->breed = Request('breed');
+        $pet->species = Request('species');
+        $pet->sex = Request('sex');
+        $pet->favorites = Request('favorites');
+        $pet->dislikes = Request('dislikes');
+        $pet->origin_story = Request('origin_story');
+        $pet->locations = Request('locations');
+        $pet->description = Request('description');
+        $pet->comments = Request('comments');
 
-        if ($request->has('chicken_photo')) {
-            $image = Request('chicken_photo');
-            $extension = Request('chicken_photo')->extension();             
+        if ($request->has('pet_photo')) {
+            $image = Request('pet_photo');
+            $extension = Request('pet_photo')->extension();             
             $name = Request('name').'_'.time().'.'.$extension;
-            $path = $image->storePubliclyAs('images/chickens', $name);
+            $path = $image->storePubliclyAs('images/pets', $name);
         }
-        $chicken->photo_url = $path;
+        $pet->photo_url = $path;
 
-        $chicken->save();
+        $pet->save();
         
 
         return back()->with('success', 'Record Created Successfully.');
@@ -76,55 +87,106 @@ class PetController extends Controller
         // 'DOD'
         // 'species'
         // 'breed'
+        // 'sex'
         // 'favorites'
         // 'dislikes'
         // 'origin_story'
         // 'locations'
         // 'description'
         // 'photo_url'
+        // 'comments'
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Coop  $coop
+     * @param  \App\Models\Pet  $pet
      * @return \Illuminate\Http\Response
      */
-    public function show(Coop $coop)
+    public function show(Pet $pet)
     {
-        //
+        return view('pets.profile', [
+            'pet' => Pet::where('name', $pet)->firstOrFail()
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Coop  $coop
+     * @param  \App\Models\Pet  $pet
      * @return \Illuminate\Http\Response
      */
-    public function edit(Coop $coop)
+    public function edit(Pet $pet)
     {
-        //
+        return view('pets.edit', ['pet' => Pet::where('name', $pet)->firstOrFail()]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Coop  $coop
+     * @param  \App\Models\Pet  $pet
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Coop $coop)
+    public function update(Request $request, Pet $pet)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|unique:chickens|max:100',
+            'DOB' => 'nullable|date',
+            'DOD' => 'nullable|date'
+            'species' => 'required',
+            'breed' => 'nullable',
+            'sex' => 'nullable',
+            'favorites' => 'nullable',
+            'dislikes' => 'nullable',
+            'origin_story' => 'nullable',
+            'locations' => 'nullable',
+            'description' => 'nullable',
+            'pet_photo' => 'nullable|mimes:jpeg,png,jpg,gif|max:2048',
+            'comments' => 'nullable'
+        ]);
+        
+        
+        $pet = Pet::where('name', $pet)->firstOrFail();
+
+        $pet->name = Request('name');
+        if (Request('DOB') !== null) {
+            $pet->DOB = Request('DOB');
+        }
+        if (Request('DOD') !== null) {
+            $pet->DOD = Request('DOD');
+        }
+        $pet->breed = Request('breed');
+        $pet->species = Request('species');
+        $pet->sex = Request('sex');
+        $pet->favorites = Request('favorites');
+        $pet->dislikes = Request('dislikes');
+        $pet->origin_story = Request('origin_story');
+        $pet->locations = Request('locations');
+        $pet->description = Request('description');
+        $pet->comments = Request('comments');
+
+        if ($request->has('pet_photo')) {
+            $image = Request('pet_photo');
+            $extension = Request('pet_photo')->extension();             
+            $name = Request('name').'_'.time().'.'.$extension;
+            $path = $image->storePubliclyAs('images/pets', $name);
+        }
+        $pet->photo_url = $path;
+
+        $pet->save();
+        
+
+        return back()->with('success', 'Record Updated Successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Coop  $coop
+     * @param  \App\Models\Pet  $pet
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Coop $coop)
+    public function destroy(Pet $pet)
     {
         //
     }}
