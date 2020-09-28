@@ -80,8 +80,17 @@
 												<li><a href="/#">#Coop Door</a></li>
 												<li><a href="/#">#Build process</a></li>
 											</ul>
-										<li><a href="/elements">Elements</a></li>
 										</li>
+										<li>
+											<span class="opener">Our Pets</span>
+											<ul>
+												<li><a href="/pets">All Of Our Pets</a></li>
+												<li><a href="/pets/add">Add A Pet</a></li>
+												<li><a href="/#">#Remove A Pet</a></li>
+											</ul>
+										</li>
+										<li><a href="/elements">Elements</a></li>
+										
 									</ul>
 								</nav>
 
