@@ -115,16 +115,16 @@ class ChickenController extends Controller
         $chicken = Chicken::where('name', $name)->first();
 
         $chicken->name = Request('name');
-        if (Request('DOB') !== null) {
+        if ($request->filled('DOB')) {
             $chicken->DOB = Request('DOB');
         }
-        if (Request('DOD') !== null) {
+        if ($request->filled('DOD')) {
             $chicken->DOD = Request('DOD');
         }
         $chicken->chicken_sex = Request('chicken_sex');
         $chicken->breed = Request('breed');
         $chicken->egg_color = Request('egg_color');
-        if ($request->has('comments')) {
+        if ($request->filled('comments')) {
             $chicken->comments = Request('comments');
         }
 

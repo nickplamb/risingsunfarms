@@ -21,11 +21,21 @@ class Chicken extends Model
 
     public function getAgeAttribute()
     {
-    	return $this->DOB->diffInWeeks();
+    	return $this->DOB->diffInWeeks() . " weeks old";
     }
 
     public function getImageAttribute()
     {
        return $this->photo_url;
+    }
+
+    public function getDiedAttribute()
+    {
+        return $this->DOD->format('D, M jS Y');
+    }
+
+    public function getBornAttribute()
+    {
+        return $this->DOB->format('D, M jS Y');
     }
 }

@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('header')
-	<style="::-webkit-datetime-edit { padding: 1em; };">
+	<style=" ::-webkit-datetime-edit { padding: 1em; }; ">
 @endsection
 
 @section('content')
@@ -89,7 +89,7 @@
 		</div>
 		<!-- Break -->
 		<div>
-			<label class="label" for="chicken_photo">Upload a picture of {{-- @if($chicken->chicken_sex == 'hen') her @else him @endif --}} chicken</label>
+			<label class="label" for="chicken_photo">Upload a picture of @if($chicken->chicken_sex == 'hen') her @else him @endif chicken</label>
 			<input type="file" name="chicken_photo" id="chicken_photo">
 		</div>
 		<!-- Break -->
