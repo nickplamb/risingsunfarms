@@ -54,7 +54,6 @@ class ChickenController extends Controller
             'comments' => 'nullable'
         ]);
         
-        
         $chicken = new Chicken();
 
         $chicken->name = Request('name');
@@ -64,19 +63,20 @@ class ChickenController extends Controller
         $chicken->egg_color = Request('egg_color');
         $chicken->comments = Request('comments');
 
-        if ($request->has('chicken_photo')) {
+        if ($request->filled('chicken_photo')) {
             $image = Request('chicken_photo');
             $extension = Request('chicken_photo')->extension();             
             $name = Request('name').'_'.time().'.'.$extension;
             $path = $image->storePubliclyAs('images/chickens', $name);
+            $chicken->photo_url = $path;
         }
-        $chicken->photo_url = $path;
 
         $chicken->save();
         
 
         return back()->with('success', 'Record Created Successfully.');
         //return redirect('/chickens');
+        //------------------------------------------------------------Add old method so data isnt lost if error.
     }
 
     /**
@@ -118,15 +118,29 @@ class ChickenController extends Controller
         if (Request('DOB') !== null) {
             $chicken->DOB = Request('DOB');
         }
-        $chicken->DOD = Request('DOD');
+        if (Request('DOD') !== null) {
+            $chicken->DOD = Request('DOD');
+        }
+        $chicken->chicken_sex = Request('chicken_sex');
         $chicken->breed = Request('breed');
         $chicken->egg_color = Request('egg_color');
-        $chicken->comments = Request('comments');
+        if ($request->has('comments')) {
+            $chicken->comments = Request('comments');
+        }
+
+        if ($request->filled('chicken_photo')) {
+            $image = Request('chicken_photo');
+            $extension = Request('chicken_photo')->extension();             
+            $name = Request('name').'_'.time().'.'.$extension;
+            $path = $image->storePubliclyAs('images/chickens', $name);
+            $chicken->photo_url = $path;
+        }
 
         $chicken->save();
 
+        return back()->with('success', 'Record Updated Successfully.');
 
-        return redirect('/chickens');
+        //return redirect('/chickens');
     }
     /**
      * Remove the specified resource from storage.
