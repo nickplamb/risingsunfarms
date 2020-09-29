@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChickenController;
 use App\Http\Controllers\EggController;
 use App\Http\Controllers\CoopController;
+use App\Http\Controllers\PetController;
 
 
 /*
@@ -43,6 +44,13 @@ Route::get('/coop/{name}', [CoopController::class, 'show']);
 Route::get('/coop/{name}/edit', [CoopController::class, 'edit']);
 Route::put('/coop/{name}', [CoopController::class, 'update']);
 
+/*Coop Routes*/
+Route::get('/pets', [PetController::class, 'index']);
+Route::post('/pets', [PetController::class, 'store']);
+Route::get('/pets/add', [PetController::class, 'add']);
+Route::get('/pets/{name}', [PetController::class, 'show']);
+Route::get('/pets/{name}/edit', [PetController::class, 'edit']);
+Route::put('/pets/{name}', [PetController::class, 'update']);
 
 Route::get('elements', function () {
     return view('elements');
