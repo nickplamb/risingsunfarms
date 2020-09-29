@@ -19,9 +19,7 @@
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
-            @foreach ($errors->all() as $error)
-                <li style="color:red;">{{ $error }}</li>
-            @endforeach
+            <li class="error">Please fill in the required fields.</li>
         </ul>
     </div>
 @endif
@@ -39,12 +37,12 @@
 
 	<div class="row gtr-uniform">
 		<div class="col-12 col-12-xsmall">
-			<label class="label" for="name">What's her name?</label>
+			<label class="label @error('name') error @enderror" for="name">What's her name?</label>
 			<input type="text" name="name" id="name" placeholder="Name"/>
 		</div>
 		<div class="col-4">
-			<label class="label" for="DOB">When did she hatch?</label>
-			<input type="date" name="DOB" id="DOB"/>
+			<label class="label @error('DOB') error @enderror" for="DOB">When did she hatch?</label>
+			<input type="date" name="DOB" id="DOB" />
 		</div>
 		<div class="col-4" style="position: relative;">
 			<div style="position: absolute; bottom: 0;">
@@ -60,7 +58,7 @@
 		</div>
 		<!-- Break -->
 		<div class="col-12">
-			<label class="label" for="breed">What's her Breed?</label>
+			<label class="label @error('breed') error @enderror" for="breed">What's her Breed?</label>
 			<select name="breed" id="breed">
 				<option value="">- Breed -</option>
 				<option value="Silver Laced Wyandotte">Silver Laced Wyandotte</option>
@@ -70,7 +68,7 @@
 			</select>
 		</div>
 		<div class="col-12">
-			<label class="label" for="egg_color">What color eggs does she lay?</label>
+			<label class="label @error('egg_color') error @enderror" for="egg_color">What color eggs does she lay?</label>
 			<select name="egg_color" id="egg_color">
 				<option value="">- Egg Color -</option>
 				<option value="Brown">Brown</option>

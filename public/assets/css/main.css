@@ -1285,6 +1285,7 @@ ul {
 dl {
   margin: 0 0 2em 0; }
   dl dt {
+    color:#3d4449; /*I added!*/
     display: block;
     font-weight: 600;
     margin: 0 0 1em 0; }
@@ -2272,3 +2273,8 @@ button,
     border-top: 0;
     margin-top: 0;
     padding-top: 0; }
+
+.error {
+  color: red;
+  text-decoration: underline red;
+}
