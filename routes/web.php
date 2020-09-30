@@ -52,6 +52,13 @@ Route::get('/pets/{name}', [PetController::class, 'show']);
 Route::get('/pets/{name}/edit', [PetController::class, 'edit']);
 Route::put('/pets/{name}', [PetController::class, 'update']);
 
-Route::get('elements', function () {
-    return view('elements');
+/*Template pages*/
+Route::get('/elements', function () {
+    return view('template.elements');
+});
+Route::get('/generic', function () {
+    return view('template.generic');
+});
+Route::get('/index', function () {
+    return view('template.index');
 });

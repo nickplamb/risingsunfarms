@@ -89,8 +89,14 @@
 												<li><a href="/#">#Remove A Pet</a></li>
 											</ul>
 										</li>
-										<li><a href="/elements">Elements</a></li>
-										
+										<li>
+											<span class="opener">Template</span>
+											<ul>
+												<li><a href="/elements">Elements</a></li>
+												<li><a href="/generic">Generic</a></li>
+												<li><a href="/index">Index</a></li>
+											</ul>
+										</li>
 									</ul>
 								</nav>
 
