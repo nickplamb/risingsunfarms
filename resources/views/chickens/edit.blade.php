@@ -22,7 +22,7 @@
     <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
-                <li style="color:red;">{{ $error }}</li>
+                <li class="error">{{ $error }}</li>
             @endforeach
         </ul>
     </div>
@@ -42,16 +42,16 @@
 
 	<div class="row gtr-uniform">
 		<div class="col-12 col-12-xsmall">
-			<label class="label" for="name">What's her name?</label>
+			<label class="label @error('name') error @enderror" for="name">What's her name?</label>
 			<input type="text" name="name" id="name" value="{{$chicken->name}}" placeholder="" />
 		</div>
 
 		<div class="col-3">
-			<label class="label" for="DOB">When did she hatch?</label>
+			<label class="label @error('DOB') error @enderror" for="DOB">When did she hatch?</label>
 			<input type="date" name="DOB" id="DOB" value=@isset($chicken->DOB) {{$chicken->DOB->format('Y-m-d')}} @endisset/>
 		</div>
 		<div class="col-3">
-			<label class="label" for="DOD">Did she die?</label>
+			<label class="label @error('DOB') error @enderror" for="DOD">Did she die?</label>
 			<input type="date" name="DOD" id="DOD" value=@isset($chicken->DOD) {{$chicken->DOD->format('Y-m-d')}} @endisset/>
 		</div>
 		<div class="col-3" style="position: relative;">

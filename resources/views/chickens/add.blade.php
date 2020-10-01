@@ -24,7 +24,7 @@
     </div>
 @endif
 @if (Session::has('success'))
-    <div class="col-12 alert alert-success text-center">
+    <div class="col-12">
         <p>
         	{{ Session::get('success') }} 
         	<a href="/chickens" class="close" data-dismiss="alert" aria-label="close">See all the Chickens</a>

@@ -17,7 +17,7 @@
 		@foreach ($chickens as $chicken)
 			<hr/>
 			<section>
-				<div class="row gtr-200">
+				<div class="row gtr-uniform">
 					<div class="col-6">
 						<header class="major"><a href="/chickens/{{$chicken->name}}"><h2>{{$chicken->name}}</h2></a></header>
 						<p>{{$chicken->name}} is a {{$chicken->breed}} who lays {{$chicken->egg_color}} eggs.</p>

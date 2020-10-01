@@ -3,6 +3,9 @@
 @section('content')
 	</br>
 	<div class="row gtr-uniform">
+		<div class="col-12">
+			<h2>Learn A Little More About {{$chicken->name}}.</h2>
+		</div>
 		<dl class="col-6">
 			<dt>{{$chicken->name}}'s Breed:</dt>
 			<dd>
