@@ -15,7 +15,7 @@ class PetController extends Controller
     public function index()
     {
         return view('/pets.pets', [
-            'pets' => Pet::orderBy('created_at', 'desc')->get()
+            'pets' => Pet::orderBy('created_at', 'desc')->paginate(4)
         ]); //
     }
 
@@ -40,7 +40,7 @@ class PetController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|unique:chickens|max:100',
             'DOB' => 'required|date',
-            'DOD' => 'nullable|date'
+            'DOD' => 'nullable|date',
             'species' => 'required',
             'breed' => 'nullable',
             'sex' => 'nullable',
@@ -133,7 +133,7 @@ class PetController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|unique:chickens|max:100',
             'DOB' => 'nullable|date',
-            'DOD' => 'nullable|date'
+            'DOD' => 'nullable|date',
             'species' => 'required',
             'breed' => 'nullable',
             'sex' => 'nullable',

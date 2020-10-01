@@ -6,12 +6,12 @@
 	<section id="banner">
 		<div class="content">
 			<header>
-				<h1>We got a new Chicken!</h1>
-				<p>Add our new chicken here.</p>
+				<h1>We got a new Pet!</h1>
+				<p>Add our new Pet here.</p>
 			</header>
 		</div>
 		<span class="image object">
-			<img src="/images/chickens/chickensadd.jpg" alt="" />
+			<img src="/images/pets/petsadd.jpg" alt="" />
 		</span>
 	</section>
 
@@ -29,35 +29,37 @@
     <div class="col-12 alert alert-success text-center">
         <p>
         	{{ Session::get('success') }} 
-        	<a href="/chickens" class="close" data-dismiss="alert" aria-label="close">See all the Chickens</a>
+        	<a href="/pets" class="close" data-dismiss="alert" aria-label="close">See all the pets</a>
         </p>
     </div>
 @endif
 
-<form method="POST" action="/chickens" enctype="multipart/form-data">
+<form method="POST" action="/pets" enctype="multipart/form-data">
 	@csrf
 
 	<div class="row gtr-uniform">
 		<div class="col-12 col-12-xsmall">
-			<label class="label" for="name">What's her name?</label>
-			<input type="text" name="name" id="name" placeholder="Name"/>
+			<label class="label" for="name">What's their name?</label>
+			<input type="text" name="name" id="name" placeholder="Name" required />
 		</div>
+		<!-- Break -->
 		<div class="col-4">
-			<label class="label" for="DOB">When did she hatch?</label>
+			<label class="label" for="DOB">When were they born?</label>
 			<input type="date" name="DOB" id="DOB"/>
 		</div>
-		<div class="col-4" style="position: relative;">
-			<div style="position: absolute; bottom: 0;">
-				<input type="radio" id="chicken_sex_hen" name="chicken_sex" value="hen" checked>
-				<label for="chicken_sex_hen">Hen</label>
-			</div>
+		<div class="col-4">
+			<label class="label" for="DOD">When did they Die?</label>
+			<input type="date" name="DOD" id="DOD"/>
 		</div>
-		<div class="col-4" style="position: relative;">
-			<div style="position: absolute; bottom: 0;">
-				<input type="radio" id="chicken_sex_rooster" name="chicken_sex" value="rooster">
-				<label for="chicken_sex_rooster">Rooster</label>
-			</div>
-		</div>
+		<div class="col-4">
+			<label class="label" for="sex">What sex are they?</label>
+			<select name="sex" id="sex">
+				<option value="female">Female</option>
+				<option value="male">Male</option>
+				<option value="unknown">Unknown</option>
+				<option value="no_matter">Doesn't Matter</option>
+			</select>
+		</div>		
 		<!-- Break -->
 		<div class="col-12">
 			<label class="label" for="breed">What's her Breed?</label>

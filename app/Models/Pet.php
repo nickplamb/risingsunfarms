@@ -28,4 +28,8 @@ class Pet extends Model
     {
        return $this->photo_url;
     }
+    public function getDiedAttribute()
+    {
+        return $this->DOD->format('D, M jS Y');
+    }
 }
