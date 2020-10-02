@@ -32,4 +32,8 @@ class Pet extends Model
     {
         return $this->DOD->format('D, M jS Y');
     }
+    public function getBirthAttribute()
+    {
+        return $this->DOB->format('D, M jS Y');
+    }
 }
