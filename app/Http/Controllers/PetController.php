@@ -103,10 +103,10 @@ class PetController extends Controller
      * @param  \App\Models\Pet  $pet
      * @return \Illuminate\Http\Response
      */
-    public function show(Pet $pet)
+    public function show($name)
     {
         return view('pets.profile', [
-            'pet' => Pet::where('name', $pet)->firstOrFail()
+            'pet' => Pet::where('name', $name)->firstOrFail()
         ]);
     }
 
@@ -118,7 +118,9 @@ class PetController extends Controller
      */
     public function edit(Pet $pet)
     {
-        return view('pets.edit', ['pet' => Pet::where('name', $pet)->firstOrFail()]);
+        return view('pets.edit', [
+            'pet' => Pet::where('name', $pet)->firstOrFail()
+        ]);
     }
 
     /**
