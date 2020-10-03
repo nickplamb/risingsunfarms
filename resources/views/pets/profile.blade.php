@@ -34,35 +34,35 @@
 				@endisset
 			@endisset
 
-			@isset($pet->person)
+			@empty(!$pet->person)
 				<dt>{{$pet->name}}'s person:</dt>
 				<dd><p>{{$pet->person}}</p></dd>
-			@endisset
+			@endempty
 
-			@isset($pet->people)
+			@empty(!$pet->people)
 				<dt>{{$pet->name}}'s other people:</dt>
 				<dd><p>{{$pet->people}}</p></dd>
-			@endisset
+			@endempty
 
-			@isset($pet->favorites)
+			@empty(!$pet->favorites)
 				<dt>Some of {{$pet->name}}'s favorites:</dt>
 				<dd><p>{{$pet->favorites}}</p></dd>
-			@endisset
+			@endempty
 
-			@isset($pet->dislikes)
+			@empty(!$pet->dislikes)
 				<dt>Some of {{$pet->name}}'s dislikes:</dt>
 				<dd><p>{{$pet->dislikes}}</p></dd>
-			@endisset
+			@endempty
 
-			@isset($pet->origin_story)
+			@empty(!$pet->origin_story)
 				<dt>{{$pet->name}}'s origin story:</dt>
 				<dd><p>{{$pet->origin_story}}</p></dd>
-			@endisset
+			@endempty
 
-			@isset($pet->comments)
+			@empty(!$pet->comments)
 				<dt>Some additional details about {{$pet->name}}.</dt>
 				<dd><p>{{$pet->comments}}</p></dd>
-			@endisset
+			@endempty
 		</dl>
 		<div class="col-6">
 			<span class="image object fit">
