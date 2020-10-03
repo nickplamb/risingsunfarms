@@ -13,6 +13,10 @@ class Pet extends Model
     	'DOD',
     	'DOB'
     ];
+    protected $casts = [
+        'DOB' => 'date',
+        'DOD' => 'date'
+    ];
 
     public function getNameAttribute($value)
     {
@@ -37,5 +41,21 @@ class Pet extends Model
     public function getBornAttribute()
     {
         return $this->DOB->format('D, M jS Y');
+    }
+    public function getDOBHumanAttribute()
+    {
+        return isset($this->DOB) ? $this->DOB->format('m-d-Y') : '';
+    }
+    public function getDODHumanAttribute()
+    {
+        return isset($this->DOD) ? $this->DOD->format('m-d-Y') : '';
+    }
+    public function getDOBInputDateAttribute()
+    {
+        return isset($this->DOB) ? $this->DOB->format('Y-m-d') : '';
+    }
+    public function getDODInputDateAttribute()
+    {
+        return isset($this->DOD) ? $this->DOD->format('Y-m-d') : '';
     }
 }

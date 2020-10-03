@@ -47,15 +47,15 @@
 				<input type="text" name="name" id="name" placeholder="{{ $pet->name }}" required />
 			</div>
 			<!-- Break -->
-			<div class="col-4 col-6-medium">
+			<div class="col-3 col-6-medium">
 				<label class="label" for="DOB">When were they born?</label>
-				<input type="date" name="DOB" id="DOB" value="{{ $pet->DOB }}" placeholder="{{ $pet->DOB }}" />
+				<input type="date" name="DOB" id="DOB" value="@isset($pet->DOB){{ $pet->DOBInputDate }}@endisset" placeholder="{{ $pet->DOBHuman }}" />
 			</div>
-			<div class="col-4 col-6-medium">
+			<div class="col-3 col-6-medium">
 				<label class="label" for="DOD">When did they Die?</label>
-				<input type="date" name="DOD" id="DOD" value="{{ $pet->DOD }}" placeholder="{{ $pet->DOD }}" />
+				<input type="date" name="DOD" id="DOD" value="@isset($pet->DOD){{ $pet->DODInputDate }}@endisset" placeholder="{{ $pet->DODHuman }}" />
 			</div>
-			<div class="col-4 col-12-medium">
+			<div class="col-6 col-12-medium">
 				<label class="label" for="sex">What sex are they?</label>
 				<select name="sex" id="sex">
 					<option value="{{ $pet->sex }} selected">{{ $pet->sex }}</option>
@@ -93,11 +93,11 @@
 			</div>
 			<div class="col-6 col-12-medium">
 				<label class="label" for="person">Who is their person?</label>
-				<textarea name="person" id="person" placeholder="{{ $pet->person }}" value="{{ $pet->person }}" rows="1"></textarea>
+				<textarea name="person" id="person" placeholder="{{ ucwords($pet->person) }}" value="{{ $pet->person }}" rows="1"></textarea>
 			</div>
 			<div class="col-6 col-12-medium">
 				<label class="label" for="people">Who are their other people?</label>
-				<textarea name="people" id="people" placeholder="{{ $pet->people }}" value="{{ $pet->people }}" rows="1"></textarea>
+				<textarea name="people" id="people" placeholder="{{ ucwords($pet->people) }}" value="{{ $pet->people }}" rows="1"></textarea>
 			</div>
 			<div class="col-12">
 				<label class="label" for="favorites">What are some of their favorite things?</label>
@@ -131,7 +131,6 @@
 			</div>
 		</div>
 	</form>
-
 @endsection
 
 			{{-- @php

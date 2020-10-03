@@ -26,8 +26,8 @@
 							@if($pet->sex === "male") He 
 							@else She 
 							@endif
-							hatched on {{$pet->born}} and 
-							@if($pet->DOD !== null) died on {{$pet->died}}.
+							was born on {{$pet->born}} and 
+							@if(isset($pet->DOD)) died on {{$pet->died}}.
 							@else is now {{$pet->age}} years old.
 							@endif
 						</p>	
