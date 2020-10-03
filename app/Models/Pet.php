@@ -21,7 +21,9 @@ class Pet extends Model
 
     public function getAgeAttribute()
     {
-    	return $this->DOB->diffInYears();
+    	$age = $this->DOB->diffInYears();
+        $retVal = ($age > 1) ? $age . ' years old' : $this->DOB->diffInWeeks() . ' weeks old';
+        return $retVal;
     }
 
     public function getImageAttribute()

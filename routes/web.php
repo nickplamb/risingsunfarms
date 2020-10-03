@@ -48,7 +48,7 @@ Route::put('/coop/{name}', [CoopController::class, 'update']);
 Route::get('/pets', [PetController::class, 'index']);
 Route::post('/pets', [PetController::class, 'store']);
 Route::get('/pets/add', [PetController::class, 'add']);
-Route::get('/pets/{name}', [PetController::class, 'show']);
+Route::get('/pets/{pet}', [PetController::class, 'show']);
 Route::get('/pets/{name}/edit', [PetController::class, 'edit']);
 Route::put('/pets/{name}', [PetController::class, 'update']);
 

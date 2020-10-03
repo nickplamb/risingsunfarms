@@ -9,11 +9,13 @@
 		<dl class="col-6">
 			<dt>{{$pet->name}}'s species:</dt>
 			<dd><p>{{$pet->species}}</p></dd>
+			
+			@isset($pet->breed)
+				<dt>{{$pet->name}} breed:</dt>
+				<dd><p>{{$pet->breed}}</p></dd>
+			@endisset
 
-			<dt>{{$pet->name}} breed:</dt>
-			<dd><p>{{$pet->egg_color}}</p></dd>
-
-			@isset($pet->born)
+			@isset($pet->DOB)
 				<dt>{{$pet->name}}  was born on:</dt>
 				<dd><p>{{$pet->born}}</p></dd>
 			@endisset
@@ -24,10 +26,12 @@
 					<p>{{$pet->died}}</p>
 				</dd>
 			@else 
-				<dt>{{$pet->name}}'s age:</dt>
-				<dd>
-					<p>{{$pet->age}}</p>
-				</dd>
+				@isset($pet->DOB)
+					<dt>{{$pet->name}}'s age:</dt>
+					<dd>
+						<p>{{$pet->age}}</p>
+					</dd>
+				@endisset
 			@endisset
 
 			@isset($pet->person)
@@ -70,7 +74,7 @@
 			</span>
 		</div>
 		<div class="col-12 col-12-xsmall">
-			<a href="/chickens/{{$pet->name}}/edit" class="button primary small">Edit her profile</a>
+			<a href="/pets/{{$pet->name}}/edit" class="button primary small">Edit her profile</a>
 		</div>
 	</div>
 @endsection

@@ -30,7 +30,7 @@
 		</div>
 		<div class="col-6">
 			<label class="label" for="DOB">When did she hatch?</label>
-			<input type="date" name="DOB" id="{{$chicken->DOB}}" value="{{$chicken->DOB}}" placeholder="{{$chicken->DOB}}}" />
+			<input type="date" name="DOB" id="{{$chicken->DOB}}" value="{{$chicken->DOB}}" placeholder="{{$chicken->DOB}}" />
 		</div>
 		<div class="col-6">
 			<label class="label" for="DOB">Did she die?</label>

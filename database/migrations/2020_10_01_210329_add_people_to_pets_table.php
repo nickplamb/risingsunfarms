@@ -14,9 +14,9 @@ class AddPeopleToPetsTable extends Migration
     public function up()
     {
         Schema::table('pets', function (Blueprint $table) {
-            $table->string('person')->after('sex');
-            $table->text('people');
-            $table->text('comments')->after('description');
+            // $table->string('person')->after('sex');
+            // $table->text('people');
+            // $table->text('comments')->after('description');
         });
     }
 
