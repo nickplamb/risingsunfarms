@@ -4,53 +4,46 @@
 	<!-- Content -->
 	<section>
 		<header class="main">
-			<h1>These are our Pets</h1>
+			<h1>These are our Pets!</h1>
 		</header>
 
-		<span class="image main"><img src="images/pets/pets.jpg" alt="" /></span>
+		<span class="image fit"><img src="images/pets/pets.jpg" alt="" /></span>
 
-		<p>Look at them!</p>
-		<p>They are so cute!</p>
-		<p>We love them all so much!.</p>
+		<p>Look at them!<br>
+		They are so cute!<br>
+		We love them all so much!.</p>
 		
 		@foreach ($pets as $pet)
-			<hr class="major" />
-
-			<section id="banner">
-				<div class="content">
-					<a href="/pets/{{$pet->name}}"><h2>{{$pet->name}}</h2></a>
+			<hr/>
+			<section>
+				<div class="row gtr-uniform">
 					<div class="col-6">
-						<p>{{$pet->name}} is a {{$pet->breed}} who lays {{$pet->egg_color}} eggs.</p>
+						<header class="major">
+							<a href="/pets/{{$pet->name}}"><h2>{{$pet->name}}</h2></a>
+						</header>
+						<p>{{$pet->name}} is a @isset($pet->breed) {{$pet->breed}} @endisset {{$pet->species}}.</p>
 						<p>
-							@if ($pet->chicken_sex === "rooster")
-								He 
-							@else
-								She
+							@if($pet->sex === "male") He 
+							@else She 
 							@endif
-
-							hatched on {{$pet->DOB->format('D, M jS Y')}} and 
-
-							@if ($pet->DOD !== null)
-								died on {{$pet->DOD->format('D, M jS Y')}}.
-							@else
-								is now {{$pet->age}} years old.
+							hatched on {{$pet->birth}} and 
+							@if($pet->DOD !== null) died on {{$pet->died}}.
+							@else is now {{$pet->age}} years old.
 							@endif
-						</p> 
-						<p></p>
+						</p>	
 					</div>
-				</div>
-				<span class="image object">
-					@if ($pet->photo_url === null)
-						<img src="/images/pets/pets.jpg" alt="" />
-					@else
-					<img src="{{$pet->image}}" alt="" />
-					@endif
-				</span>
+					<div class="col-6">
+						<span class="image fit">
+							@if ($pet->photo_url === null)
+								<img src="/images/pets/pets.jpg" alt="" />
+							@else
+								<img src="{{$pet->image}}" alt="" />
+							@endif
+						</span>	
+					</div>		
+				</div>				
 			</section>
 		@endforeach
-		
-<!--ADD pagination!!!-->
-
-
+		<div class="col-12 row aln-center">{{ $pets->links() }}</div>
 	</section>
 @endsection
