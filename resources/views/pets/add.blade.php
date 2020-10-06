@@ -65,13 +65,13 @@
 			<label class="label" for="species">What kind of animal are they?</label>
 			<select name="species" id="species">
 				<option value="">- Animals -</option>
-				<option value="dog">Dog</option>
-				<option value="cat">Cat</option>
-				<option value="turtle">Turtle</option>
-				<option value="fish">Fish</option>
-				<option value="bird">Bird</option>
-				<option value="rat">Rat</option>
-				<option value="sea monkies">Sea Monkies</option>
+				<option value="Dog">Dog</option>
+				<option value="Cat">Cat</option>
+				<option value="Turtle">Turtle</option>
+				<option value="Fish">Fish</option>
+				<option value="Bird">Bird</option>
+				<option value="Rat">Rat</option>
+				<option value="Sea Monkies">Sea Monkies</option>
 			</select>
 		</div>
 		<div class="col-6 col-12-medium">

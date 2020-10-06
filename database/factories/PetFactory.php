@@ -29,6 +29,7 @@ class PetFactory extends Factory
             'species' => $this->faker->randomElement($array = array('dog', 'cat', 'rat', 'fish', 'chinchilla', 'parrot', 'snake')),
             'breed' => $this->faker->optional(0.8)->realText($maxNbChars = 10, $indexSize = 1),
             'sex' => $this->faker->optional(0.5)->randomElement($array = array('male', 'female')),
+            'person' => $this->faker->randomElement($array = array('Katie', 'emily', 'nick')),
             'favorites' => $this->faker->optional(0.5)->realText($maxNbChars = 50, $indexSize = 1),
             'dislikes' => $this->faker->optional(0.5)->realText($maxNbChars = 50, $indexSize = 1),
             'origin_story' => $this->faker->optional(0.5)->realText($maxNbChars = 50, $indexSize = 1),

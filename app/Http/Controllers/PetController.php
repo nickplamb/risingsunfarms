@@ -39,11 +39,13 @@ class PetController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|unique:chickens|max:100',
-            'DOB' => 'required|date',
+            'DOB' => 'nullable|date',
             'DOD' => 'nullable|date',
             'species' => 'required',
             'breed' => 'nullable',
             'sex' => 'nullable',
+            'person' => '  nullable',
+            'people' => 'nullable',
             'favorites' => 'nullable',
             'dislikes' => 'nullable',
             'origin_story' => 'nullable',
@@ -62,6 +64,8 @@ class PetController extends Controller
         $pet->breed = Request('breed');
         $pet->species = Request('species');
         $pet->sex = Request('sex');
+        $pet->person = Request('person');
+        $pet->people = Request('people');
         $pet->favorites = Request('favorites');
         $pet->dislikes = Request('dislikes');
         $pet->origin_story = Request('origin_story');
@@ -74,8 +78,9 @@ class PetController extends Controller
             $extension = Request('pet_photo')->extension();             
             $name = Request('name').'_'.time().'.'.$extension;
             $path = $image->storePubliclyAs('images/pets', $name);
+            $pet->photo_url = $path;        
         }
-        $pet->photo_url = $path;
+
 
         $pet->save();
         
@@ -103,8 +108,9 @@ class PetController extends Controller
      * @param  \App\Models\Pet  $pet
      * @return \Illuminate\Http\Response
      */
-    public function show(Pet $pet)
+    public function show($pet)
     {
+        //return view('pets.profile', ['name' => $pet]);
         return view('pets.profile', [
             'pet' => Pet::where('name', $pet)->firstOrFail()
         ]);
@@ -116,9 +122,11 @@ class PetController extends Controller
      * @param  \App\Models\Pet  $pet
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pet $pet)
+    public function edit($pet)
     {
-        return view('pets.edit', ['pet' => Pet::where('name', $pet)->firstOrFail()]);
+        return view('pets.edit', [
+            'pet' => Pet::where('name', $pet)->firstOrFail()
+        ]);
     }
 
     /**
@@ -137,6 +145,8 @@ class PetController extends Controller
             'species' => 'required',
             'breed' => 'nullable',
             'sex' => 'nullable',
+            'person' => '  nullable',
+            'people' => 'nullable',
             'favorites' => 'nullable',
             'dislikes' => 'nullable',
             'origin_story' => 'nullable',

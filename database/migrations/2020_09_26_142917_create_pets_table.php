@@ -21,11 +21,14 @@ class CreatePetsTable extends Migration
             $table->string('species');
             $table->string('breed')->nullable();
             $table->string('sex')->nullable();
+            $table->string('person')->nullable();
+            $table->text('people')->nullable();
             $table->text('favorites')->nullable();
             $table->text('dislikes')->nullable();
             $table->text('origin_story')->nullable(); //family, how we got them, where they lived
             $table->text('locations')->nullable(); //what city they lived in.
-            $table->text('description')->nullable();
+            $table->text('description')->nullable(); //physical description
+            $table->text('comments')->nullable();
             $table->string('photo_url')->nullable();
             $table->timestamps();
         });
