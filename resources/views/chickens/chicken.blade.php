@@ -15,43 +15,43 @@
 		<p>They are fucking awesome.</p>
 		
 		@foreach ($chickens as $chicken)
-			<hr class="major" />
-
-			<section id="banner">
-				<div class="content">
-					<a href="/chickens/{{$chicken->name}}"><h2>{{$chicken->name}}</h2></a>
+			<hr/>
+			<section>
+				<div class="row gtr-uniform">
 					<div class="col-6">
-						<p>{{$chicken->name}} is a {{$chicken->breed}} who lays {{$chicken->egg_color}} eggs.</p>
+						<header class="major"><a href="/chickens/{{ $chicken->name }}"><h2>{{ $chicken->name }}</h2></a></header>
+						<p>{{ $chicken->name }} is a {{ $chicken->breed }} who lays 
+							@if (strtolower($chicken->egg_color) == "no")
+								{{ $chicken->egg_color }} eggs, because he is a rooster.</p>
+							@else	
+								{{ $chicken->egg_color }} eggs.</p>
+							@endif
 						<p>
-							@if ($chicken->chicken_sex === "rooster") 
-								He 
-							@else
-								She
+							@if ($chicken->chicken_sex === "rooster") He 
+							@else She 
 							@endif
-
-							hatched on {{$chicken->DOB->format('D, M jS Y')}} and 
-
-							@if ($chicken->DOD !== null)
-								died on {{$chicken->died}}.
-							@else
-								is now {{$chicken->age}} weeks old.
+							hatched on {{ $chicken->Born }} and 
+							@if ($chicken->DOD !== null) died on {{ $chicken->died }}.
+							@else is now {{ $chicken->age }}.
 							@endif
-						</p> 
-						<p></p>
+						</p>	
 					</div>
-				</div>
-				<span class="image object">
-					@if ($chicken->photo_url === null)
-						<img src="/images/chickens/chickensadd.jpg" alt="" />
-					@else
-						<img src="{{$chicken->image}}" alt="" />
-					@endif
-				</span>
+					<div class="col-6">
+						<span class="image fit">
+							@if ($chicken->photo_url === null)
+								<img src="/images/chickens/chickensadd.jpg" alt="" />
+							@else
+								<img src="{{ $chicken->image }}" alt="" />
+							@endif
+						</span>	
+					</div>		
+				</div>				
 			</section>
 		@endforeach
-		
-		{{ $chickens->links() }}
-
+		<section>
+			<hr class="major"/>
+			<div class="col-12 row aln-center">{{ $chickens->links() }}</div>
+		</section>
 	</section>
 
 @endsection
